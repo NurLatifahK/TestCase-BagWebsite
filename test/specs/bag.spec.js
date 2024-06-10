@@ -81,6 +81,3 @@ describe('FITUR PRODUCT DETAIL', function(){
 
     })
 })
-
-
-    
