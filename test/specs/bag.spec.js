@@ -64,35 +64,23 @@ describe('FITUR PRODUCT DETAIL', function(){
     it('Go To Cart with 2 Products', async function(){
         await productPage.openProduct()
         await productPage.addToBag()
-        await cartPage.goToCartButton.waitForDisplayed({ timeout: 3000 })
+        await cartPage.goToCartButton.waitForDisplayed({timeout:3000})
         await cartPage.goToCart()
         await expect(browser).toHaveUrl('https://beyondthevines.co.id/cart')
     })
+
+    it('User Changes Pair it With', async function(){
+        await productPage.addChangesPairItWith()
+        await expect(productPage.cartItemTitle).toHaveText('Twill Logo Cap')
+    })
+
+    
+    it('User Changes Viewport', async function(){
+        await productPage.changeViewport()
+        await expect(productPage.viewportInput).toBeDisplayed()
+
+    })
 })
 
-    // it('User Changes Pair it With', async function(){////// SALAH
-    //     await browser.url('https://beyondthevines.co.id/products/the-carnival-bag?variant=47260687401239')
 
-    //     const flickity = await $('//*[@id="shopify-section-template--21404074967319__main"]/section/div/section/div/div/div[2]/div[6]/div[3]/div/button[2]')
-    //     await flickity.click()
-    //     await flickity.click()
-
-    //     const flickityInput = await $('input[aria-label="Next"]')
-    //     //await expect(flickityInput).toBeChecked() // APA YAA EXPECTNYA
-
-    //     await browser.pause(2000)
-    // })
-
-    // it('User Changes Viewport', async function(){//////  SALAH
-    //     await browser.url('https://beyondthevines.co.id/products/the-carnival-bag?variant=47260687401239')
-
-    //     const viewport = await $('//div[@class="thumb_variant_img gallery-cell "][3]')
-    //     await viewport.click()
-    //     const viewport2 = await $('//div[@class="thumb_variant_img gallery-cell "][4]')
-    //     await viewport2.click()
-
-    //     const viewportInput = await $('[id="jsc_thumb_img"]')
-    //     //await expect(viewportInput).toBeChecked() // APA YAA EXPECTNYA
-
-    //     await browser.pause(2000)
-    // })
+    
